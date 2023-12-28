@@ -38,6 +38,23 @@ public class Solution {
 
         // Problem 8
         System.out.println("Problem 8: " + problem8(5));
+
+        // Problem 9
+        boolean isAvailable = problem9(array, 4);
+        if(isAvailable) {
+            System.out.println("Problem 9: Found the element");
+        } else {
+            System.out.println("Problem 9: Not Found the element");
+        }
+
+        // Problem 10
+        int available = problem10(array, 30);
+        if(available == -1) {
+            System.out.println("Problem 10: Search Element not found");
+        } else {
+            System.out.println("Problem 10: Search Element found at index "+available);
+        }
+
     }
 
     // Problem 1
@@ -134,6 +151,36 @@ public class Solution {
         } else {
             return problem8(num-1) + problem8(num-2);
         }
+    }
+
+    // Problem 9
+    // Linear Search: Implement a linear search algorithm to find an element in an array. (true or false return type)
+    public static boolean problem9(int[] array, int search) {
+        for(int i=0; i<array.length; i++) {
+            if(array[i] == search) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Problem 10
+    // Binary Search: Implement binary search for a sorted array
+    public static int problem10(int[] array, int search) {
+        Arrays.sort(array);
+        int low = 0;
+        int high = array.length - 1;
+        while(low <= high) {
+            int middle = (low+high) / 2;
+            if(array[middle] == search) {
+                return middle;
+            } else if(search > array[middle]) {
+                low = middle + 1;
+            } else {
+                high = middle - 1;
+            }
+        }
+        return -1;
     }
 
 }
