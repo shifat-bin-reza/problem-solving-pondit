@@ -1,9 +1,10 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Solution {
 
     public static void main(String[] args) {
-        int[] array = {1, 2, 30, 4, 50};
+        int[] array = {1, 2, 30, 4, 50, 4, 1};
 
         // Problem 1
         System.out.println("Problem 1: " + problem1(array));
@@ -53,6 +54,14 @@ public class Solution {
             System.out.println("Problem 10: Search Element not found");
         } else {
             System.out.println("Problem 10: Search Element found at index "+available);
+        }
+
+        // Problem 11
+        boolean isDuplicate = problem11(array);
+        if(isDuplicate) {
+            System.out.println("is the duplicate element");
+        } else {
+            System.out.println("Problem 11: There is no duplicate element");
         }
 
     }
@@ -182,5 +191,24 @@ public class Solution {
         }
         return -1;
     }
+
+    // Problem 11
+    // Duplicate Elements: Find and print duplicate elements in an array.
+    public static boolean problem11(int[] array) {
+        ArrayList<Integer> duplicateData = new ArrayList<>();
+        for(int i=0; i < array.length-1; i++) {
+            for(int j=i+1; j < array.length; j++) {
+                if (array[i] == array[j]) {
+                    duplicateData.add(array[i]);
+                }
+            }
+        }
+        if (!duplicateData.isEmpty()) {
+            System.out.print("Problem 11: " + duplicateData + " ");
+            return true;
+        }
+        return false;
+    }
+
 
 }
