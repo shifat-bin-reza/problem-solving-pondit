@@ -10,18 +10,23 @@ public class Solution {
         System.out.println("Problem 1: " + problem1(array));
 
         // Problem 2
+        System.out.println();
         System.out.println("Problem 2: " + problem2(array));
 
         // Problem 3
+        System.out.println();
         problem3(array);
 
         // Problem 4
+        System.out.println();
         problem4(array);
 
         // Problem 5
+        System.out.println();
         System.out.println("Problem 5: " + problem5(5));
 
         // Problem 6
+        System.out.println();
         boolean isPalindrome = problem6("madam");
         if(isPalindrome) {
             System.out.println("Problem 6: Palindrome");
@@ -30,6 +35,7 @@ public class Solution {
         }
 
         // Problem 7
+        System.out.println();
         boolean isPrime = problem7(7);
         if(isPrime) {
             System.out.println("Problem 7: Prime");
@@ -38,9 +44,11 @@ public class Solution {
         }
 
         // Problem 8
+        System.out.println();
         System.out.println("Problem 8: " + problem8(5));
 
         // Problem 9
+        System.out.println();
         boolean isAvailable = problem9(array, 4);
         if(isAvailable) {
             System.out.println("Problem 9: Found the element");
@@ -49,6 +57,7 @@ public class Solution {
         }
 
         // Problem 10
+        System.out.println();
         int available = problem10(array, 30);
         if(available == -1) {
             System.out.println("Problem 10: Search Element not found");
@@ -57,6 +66,7 @@ public class Solution {
         }
 
         // Problem 11
+        System.out.println();
         boolean isDuplicate = problem11(array);
         if(isDuplicate) {
             System.out.println("is the duplicate element");
@@ -65,12 +75,15 @@ public class Solution {
         }
 
         // Problem 12
+        System.out.println();
         problem12("Bangladesh");
 
         // Problem 13
+        System.out.println();
         problem13(2);
 
         // Problem 14
+        System.out.println();
         int[][] m1 = {
                 {1, 2, 3, 4, 5},
                 {6, 7, 8, 9, 10},
@@ -94,6 +107,34 @@ public class Solution {
             }
             System.out.println();
         }
+
+        // Problem 15
+        System.out.println();
+        System.out.println("Problem 15: " + problem15(array));
+
+        // Problem 16
+        System.out.println();
+        if(problem16(1900)) {
+            System.out.println("Problem 16: Leap Year");
+        } else {
+            System.out.println("Problem 16: Not a Leap Year");
+        }
+
+        // Problem 17
+        System.out.println();
+        problem17();
+
+        // Problem 18
+        System.out.println();
+        problem18("apple");
+
+        // Problem 19
+        System.out.println();
+        problem19(1634);
+
+        // Problem 20
+        System.out.println();
+        problem20(array);
 
     }
 
@@ -284,5 +325,99 @@ public class Solution {
         return result;
     }
 
+    // Problem 15
+    // Calculate Average: Calculate the average of elements in an array.
+    public static double problem15(int[] array) {
+        int sum = 0;
+        for (int i : array) {
+            sum += i;
+        }
+        double avg;
+        avg = (double)sum / array.length;
+        return avg;
+    }
+
+    // Problem 16
+    // Leap Year Check: Determine whether a given year is a leap year.
+    public static boolean problem16(int year) {
+        if(year % 2 == 0 && year % 100 != 0) {
+            return true;
+        } else if(year % 400 == 0) {
+            return true;
+        }
+        return false;
+    }
+
+    // Problem 17
+    // Pattern Printing: Print a pattern (e.g., a pyramid) using loops.
+    public static void problem17(){
+        for(int i=1; i <= 5; i++) {
+            for(int j=1; j <= 5-i; j++) {
+                System.out.print(" ");
+            }
+
+            for(int k=1; k <= 2 * i - 1; k++) {
+                System.out.print("*");
+            }
+
+            System.out.println();
+        }
+    }
+
+    // Problem 18
+    // String Reversal: Reverse a given string without using built-in functions. apple, elppa
+    public static void problem18(String str) {
+        int low = 0;
+        int high = str.length() - 1;
+        char temp;
+        char[] newStr = str.toCharArray();
+        while(low < high) {
+            temp = newStr[low];
+            newStr[low] = newStr[high];
+            newStr[high] = temp;
+
+            low++;
+            high--;
+        }
+
+        String reverseString = new String(newStr);
+        System.out.println("Problem 18: " + reverseString);
+    }
+
+    // Problem 19
+    // Armstrong Number: Check if a number is an Armstrong number.
+    public static void problem19(int num) {
+        int length = String.valueOf(num).length();
+        int originalNum = num;
+        int lastDigit;
+        int sum = 0;
+        while(num > 0) {
+            lastDigit = num % 10;
+            sum += (int) Math.pow(lastDigit, length);
+            num /= 10;
+        }
+
+        if (sum == originalNum) {
+            System.out.println("Problem 19: Armstrong Number");
+        } else  {
+            System.out.println("Problem 19: Not  Armstrong Number");
+        }
+    }
+
+    // Problem 20
+    // Find Minimum and Maximum: Write a program to find the minimum and maximum values in an array.
+    public static void problem20(int[] array) {
+        int min = array[0];
+        int max = array[0];
+        for(int i=0; i<array.length; i++) {
+            if(array[i] < min) {
+                min = array[i];
+            }
+            if(array[i] > max) {
+                max = array[i];
+            }
+        }
+        System.out.println("Problem 20: " + "Min = " + min + ", Max = " + max);
+    }
 
 }
