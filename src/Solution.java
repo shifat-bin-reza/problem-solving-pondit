@@ -64,6 +64,37 @@ public class Solution {
             System.out.println("Problem 11: There is no duplicate element");
         }
 
+        // Problem 12
+        problem12("Bangladesh");
+
+        // Problem 13
+        problem13(2);
+
+        // Problem 14
+        int[][] m1 = {
+                {1, 2, 3, 4, 5},
+                {6, 7, 8, 9, 10},
+                {11, 12, 13, 14, 15},
+                {16, 17, 18, 19, 20},
+                {21, 22, 23, 24, 25}
+        };
+
+        int[][] m2 = {
+                {26, 27, 28, 29, 30},
+                {31, 32, 33, 34, 35},
+                {36, 37, 38, 39, 40},
+                {41, 42, 43, 44, 45},
+                {46, 47, 48, 49, 50}
+        };
+        int[][] res = problem14(m1, m2);
+        System.out.println("Problem 14: ");
+        for(int i=0; i<res.length; i++) {
+            for (int j=0; j<res[i].length; j++) {
+                System.out.print(res[i][j] + " ");
+            }
+            System.out.println();
+        }
+
     }
 
     // Problem 1
@@ -208,6 +239,49 @@ public class Solution {
             return true;
         }
         return false;
+    }
+
+    // Problem 12
+    // Count Vowels and Consonants: Count the number of vowels and consonants in a given string. (a, e, i, o, u)
+    public static void problem12(String str) {
+        String s = str.toLowerCase();
+        int vowel = 0;
+        int consonant = 0;
+
+        for(int i=0; i<str.length(); i++) {
+            char c = s.charAt(i);
+            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                vowel++;
+            } else  {
+                consonant++;
+            }
+        }
+
+        System.out.println("Problem 12: Vowel = " + vowel + ", Consonant = " + consonant);
+    }
+
+    // Problem 13
+    // Multiplication Table: Print the multiplication table for a given number. (2 x 1 = 1, 2 x 2 = 4)
+    public static void problem13(int number) {
+        System.out.println("Problem 13: ");
+        for(int i=1; i<=10; i++) {
+            System.out.println(number + " * " + i + " = " + number*i);
+        }
+    }
+
+    // Problem 14
+    // Matrix Addition: Add two matrices and print the result. 5x5 (return 2d array)
+    public static int[][] problem14(int[][] m1, int[][] m2) {
+
+        int row = m1.length;
+        int col = m1[0].length;
+        int[][] result = new int [row][col];
+        for(int i=0; i<row; i++) {
+            for(int j=0; j<col; j++) {
+                result[i][j] = m1[i][j] + m2[i][j];
+            }
+        }
+        return result;
     }
 
 
