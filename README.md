@@ -44,7 +44,7 @@
     
 22. Write a program to convert temperatures from Celsius to Fahrenheit and vice versa.
 
-23. Write a program that checks whether the input character is an uppercase letter, lowercase letter, a digit, or a special 24. character.
+23. Write a program that checks whether the input character is an uppercase letter, lowercase letter, a digit, or a special character.
 
 24. Write a program to find the second largest number in a given array.
 
