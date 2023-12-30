@@ -136,6 +136,26 @@ public class Solution {
         System.out.println();
         problem20(array);
 
+        // Problem 21
+        System.out.println();
+        System.out.println("Problem 21: " + problem21(1000, 5.0, 2));
+
+        // Problem 22
+        System.out.println();
+        problem22(25, 77);
+
+        // Problem 23
+        System.out.println();
+        problem23('$');
+
+        // Problem 24
+        System.out.println();
+        System.out.println("Problem 24: " + problem24(array));
+
+        // Problem 25
+        System.out.println();
+        System.out.println("Problem 25: " + problem25("sh1fa5t1"));
+
     }
 
     // Problem 1
@@ -418,6 +438,65 @@ public class Solution {
             }
         }
         System.out.println("Problem 20: " + "Min = " + min + ", Max = " + max);
+    }
+
+    // Problem 21
+    // Calculate the simple interest for given principal, rate of interest, and time.
+    public static double problem21(double principle, double rateOfInterest, double time) {
+        return (principle * rateOfInterest * time) / 100;
+    }
+
+    // Problem 22
+    // Write a program to convert temperatures from Celsius to Fahrenheit and vice versa.
+    public static void problem22(double c, double f) {
+        double fahrenheit = ((double) 9 /5) * c + 32;
+        double celsius = ((double) 5/9) * (f - 32);
+        System.out.println("Problem 22: Fahrenheit = " + fahrenheit + ", Celsius = " + celsius);
+    }
+
+    // Problem 23
+    // Write a program that checks whether the input character is an uppercase letter, lowercase letter, a digit, or a special 24. character.
+    public static void problem23(char c) { // Solved using ASCII code
+        if(c >= 65 && c <= 90) {
+            System.out.println("Problem 23: Upper Case Letter");
+        } else if (c >= 97 && c <= 122) {
+            System.out.println("Problem 23: Lower Case Letter");
+        } else if(c >= 48 && c <= 57) {
+            System.out.println("Problem 23: Number");
+        } else {
+            System.out.println("Problem 23: Special Character");
+        }
+    }
+
+    // Problem 24
+    // Write a program to find the second-largest number in a given array.
+    public static int problem24(int[] array) {
+        int max = array[0];
+        for (int i : array) {
+            if (i > max) {
+                max = i;
+            }
+        }
+        int secondMax = array[0];
+        for (int i : array) {
+            if(i > secondMax && i < max) {
+                secondMax = i;
+            }
+        }
+        return secondMax;
+    }
+
+    // Problem 25
+    // Given a string containing both letters and numbers, find the sum of all the numbers in the string.
+    public static int problem25(String s) {
+        int sum = 0;
+        for(int i=0; i<s.length(); i++) {
+            char number = s.charAt(i);
+            if(Character.isDigit(number)) {
+                sum = sum + Character.getNumericValue(number);
+            }
+        }
+        return sum;
     }
 
 }
